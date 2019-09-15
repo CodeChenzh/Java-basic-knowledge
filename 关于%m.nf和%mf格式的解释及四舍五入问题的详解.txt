@@ -1,17 +1,17 @@
-ǰ���������������С����ʱ���ҷ����Լ���Ȼ�޷��϶��ĸ����𰸣������Լ���Eclipse�ϲ�����һ�£�д����ƪ���ͣ��Թ����һ����ѧϰѧϰ��
+前几天室友问我这个小问题时，我发现自己竟然无法肯定的给出答案，索性自己在Eclipse上测试了一下，写了这篇博客，以供大家一起来学习学习！
 
-1.�������%m.nf��ʽ��
+1.对于输出%m.nf格式：
 
-m��ʾҪ���������Ŀ��ȣ�����С���㣬���ʵ����ֵ�Ŀ��ȴ���m,����ʵ�ʵ����ݿ���Ϊ׼�����ʵ����ֵ����С��m,��ôĬ���Ҷ��룬ǰ�油�ո�
+m表示要输出这个数的宽度，包括小数点，如果实际数值的宽度大于m,则以实际的数据宽度为准，如果实际数值宽度小于m,那么默认右对齐，前面补空格。
 
-n��ʾС����������ݵ�λ����
+n表示小数点后面数据的位数。
 
 public static void main(String[] args) {
 		float x=1.456f;  
 		System.out.printf("%3.2f",x);
 }
 
-�����1.46
+输出：1.46
 
 public static void main(String[] args) {
 		float x=1.456f;   
@@ -20,42 +20,42 @@ public static void main(String[] args) {
 
 
 
-�����? ? ? ? 1.456��ǰ����8���ո�
+输出:        1.456（前面有8个空格）
 
-2.�������%mf��ʽ:
+2.对于输出%mf格式:
 
-m��ʾҪ���������Ŀ��ȣ�����С���㣬���ʵ����ֵ�Ŀ��ȴ���m,����ʵ�ʵ����ݿ���Ϊ׼�����ʵ����ֵ����С��m,��ôĬ���Ҷ��룬ǰ�油�ո�
+m表示要输出这个数的宽度，包括小数点，如果实际数值的宽度大于m,则以实际的数据宽度为准，如果实际数值宽度小于m,那么默认右对齐，前面补空格。
 
-ע�⣺���ڸ����ͱ�����С�����Ĭ����6λС����
+注意：对于浮点型变量，小数点后默认有6位小数。
 
 public static void main(String[] args) {
-		double x=1.456f; ????//ʵ������Ϊ1.456000
+		double x=1.456f; ????//实际数据为1.456000
 		System.out.printf("%4f",x);
 	}
-�����1.456000
+输出：1.456000
 
 public static void main(String[] args) {
-		double x=1.456f;    //ʵ������Ϊ1.456000
+		double x=1.456f;    //实际数据为1.456000
               System.out.printf("%15f",x);
 } 
 
 
 
-�����? ? ? ?1.456000��ǰ����7���ո�
+输出:       1.456000（前面有7个空格）
 
-3.���������������⣺
+3.对于四舍五入问题：
 
-ֱ���ϴ���
+直接上代码
 
 public static void main(String[] args) {
 		double x=1.456f;	
 		System.out.printf("%3.2f",x);
-	} ���Ϊ1.46
+	} 输出为1.46
 
 
 
 public static void main(String[] args) {
 		double x=1.454f;	
 		System.out.printf("%3.2f",x);
-	}���Ϊ1.45
+	}输出为1.45
 
